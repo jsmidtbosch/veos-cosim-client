@@ -7,9 +7,9 @@
 #include <string_view>  // IWYU pragma: keep
 
 #ifdef _WIN32
-#include <WS2tcpip.h>
+#include <ws2tcpip.h>
 #include <WinSock2.h>
-#include <Windows.h>
+#include <windows.h>
 #pragma comment(lib, "Ws2_32.lib")
 #else
 #include <arpa/inet.h>

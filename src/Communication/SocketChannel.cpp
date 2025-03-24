@@ -17,6 +17,10 @@
 #include "DsVeosCoSim/CoSimTypes.h"
 #include "Socket.h"
 
+#ifdef _WIN32
+#include <windows.h>  // NOLINT
+#endif
+
 namespace DsVeosCoSim {
 
 namespace {
@@ -270,7 +274,7 @@ public:
                 }
             }
 
-            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+            Sleep(1);
 
             if (timeoutInMilliseconds > 0) {
                 timeoutInMilliseconds--;

@@ -14,11 +14,31 @@
 #include "DsVeosCoSim/CoSimTypes.h"
 
 #ifdef _WIN32
-#include <WS2tcpip.h>
-#include <Windows.h>  // NOLINT
-#include <afunix.h>
 #include <stdio.h>  // NOLINT
-#include <winsock2.h>
+
+#ifdef __MINGW32__
+    #ifndef _WIN32_WINNT
+        #define _WIN32_WINNT 0x0600
+    #elif _WIN32_WINNT < 0x0600
+        #undef _WIN32_WINNT
+        #define _WIN32_WINNT 0x0600
+    #endif
+#endif
+
+#include <ws2tcpip.h>
+#include <windows.h>  // NOLINT
+
+#ifdef _MSC_VER
+#include <afunix.h>
+#else
+#define UNIX_PATH_MAX 108
+typedef struct sockaddr_un
+{
+     ADDRESS_FAMILY sun_family;     /* AF_UNIX */
+     char sun_path[UNIX_PATH_MAX];  /* pathname */
+} SOCKADDR_UN, *PSOCKADDR_UN;
+#endif
+
 #else
 #include <arpa/inet.h>
 #include <netinet/in.h>

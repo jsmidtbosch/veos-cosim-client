@@ -4,7 +4,7 @@
 
 #include "SharedMemory.h"
 
-#include <Windows.h>  // NOLINT
+#include <windows.h>  // NOLINT
 
 #include <cstddef>
 #include <optional>

@@ -9,7 +9,7 @@
 #include "DsVeosCoSim/CoSimTypes.h"
 
 #ifdef _WIN32
-#include <Windows.h>
+#include <windows.h>
 #endif
 
 using namespace DsVeosCoSim;

@@ -4,7 +4,7 @@
 
 #include "OsUtilities.h"
 
-#include <Windows.h>  // NOLINT
+#include <windows.h>  // NOLINT
 
 #include <cstdint>
 #include <string>
